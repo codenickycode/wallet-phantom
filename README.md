@@ -1,3 +1,3 @@
-# react-boilerplate
+# wallet-phantom
 
-A React app boilerplate with TypeScript, ESLint, and Jest, bundled by Webpack with swc.
+A React app that connects to a user's phantom wallet.

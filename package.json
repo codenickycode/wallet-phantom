@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "wallet-phantom",
   "version": "0.0.0",
-  "description": "A boilerplate for a React app with TypeScript, ESLint, and Jest, bundled by Webpack with swc.",
+  "description": "A React app that connects to a user's phantom wallet",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prebuild": "rm -rf build",
@@ -13,18 +13,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drumnickydrum/react-boilerplate.git"
+    "url": "git+https://github.com/drumnickydrum/wallet-phantom.git"
   },
   "keywords": [
     "react",
-    "boilerplate"
+    "wallet",
+    "phantom",
+    "web3",
+    "blockchain",
+    "crypto",
+    "dapp"
   ],
   "author": "Nick Carbone",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/drumnickydrum/react-boilerplate/issues"
+    "url": "https://github.com/drumnickydrum/wallet-phantom/issues"
   },
-  "homepage": "https://github.com/drumnickydrum/react-boilerplate#readme",
+  "homepage": "https://github.com/drumnickydrum/wallet-phantom#readme",
   "devDependencies": {
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
     "@swc/cli": "^0.1.57",
