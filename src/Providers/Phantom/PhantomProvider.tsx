@@ -12,10 +12,7 @@ interface PhantomProviderProps {
 }
 
 export const PhantomProvider = (props: PhantomProviderProps) => {
-  if (!props.provider) {
-    throw new Error('phantom provider not available in the browser');
-  }
-  const value = usePhantom(props.provider);
+  const value = usePhantom();
 
   return (
     <PhantomContext.Provider value={value}>
