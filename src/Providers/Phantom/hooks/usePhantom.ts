@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { getPhantomProvider } from '../getPhantomProvider';
 import { ConnectOpts } from '../types';
+import { useAddConnectionListeners } from './useAddConnectionListeners';
 
 /**
  * Provides access to Phantom, which injects its provider into the window
@@ -69,6 +70,8 @@ export const usePhantom = () => {
         console.error(e);
       });
   }, [provider, pubKey]);
+
+  useAddConnectionListeners({ provider, connect, disconnect, setPubKey });
 
   return {
     connect,
