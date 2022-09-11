@@ -1,5 +1,8 @@
 import { PublicKey, Transaction, SendOptions } from '@solana/web3.js';
 
+// These types were copied from the Phantom sandbox and are subject to change
+// without notice!
+
 type DisplayEncoding = 'utf8' | 'hex';
 
 type PhantomEvent = 'connect' | 'disconnect' | 'accountChanged';
@@ -12,11 +15,11 @@ type PhantomRequestMethod =
   | 'signAllTransactions'
   | 'signMessage';
 
-interface ConnectOpts {
-  onlyIfTrusted: boolean;
+export interface ConnectOpts {
+  onlyIfTrusted?: boolean;
 }
 
-export interface PhantomProvider {
+export interface IPhantomProvider {
   publicKey: PublicKey | null;
   isConnected: boolean | null;
   signAndSendTransaction: (
@@ -33,13 +36,4 @@ export interface PhantomProvider {
   disconnect: () => Promise<void>;
   on: (event: PhantomEvent, handler: (args: any) => void) => void;
   request: (method: PhantomRequestMethod, params: any) => Promise<unknown>;
-}
-
-export type Status = 'success' | 'warning' | 'error' | 'info';
-
-export interface TLog {
-  status: Status;
-  method?: PhantomRequestMethod | Extract<PhantomEvent, 'accountChanged'>;
-  message: string;
-  messageTwo?: string;
 }

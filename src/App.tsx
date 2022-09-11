@@ -1,13 +1,14 @@
-import styles from './App.module.css';
+import { NotPhantom } from './NotPhantom';
+import { Phantom } from './Phantom';
+import { getPhantomProvider, PhantomProvider } from './Providers';
 
-interface AppProps {
-  testCopy: string;
-}
-
-export function App(props: AppProps) {
-  return (
-    <>
-      <h1 className={styles.header}>{props.testCopy}</h1>
-    </>
+export function App() {
+  const provider = getPhantomProvider();
+  return provider ? (
+    <PhantomProvider provider={provider}>
+      {provider ? <Phantom /> : <NotPhantom />}
+    </PhantomProvider>
+  ) : (
+    <NotPhantom />
   );
 }
