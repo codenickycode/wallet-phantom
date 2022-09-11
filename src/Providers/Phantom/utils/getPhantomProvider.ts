@@ -1,4 +1,4 @@
-import { IPhantomProvider } from './types';
+import { IPhantomProvider } from '../types';
 
 /**
  * Retrieves the Phantom provider from the window object
