@@ -37,6 +37,9 @@ export const usePhantom = () => {
         .connect({ onlyIfTrusted: opts?.onlyIfTrusted })
         .then((res) => {
           const newPubKey = res.publicKey.toString();
+          if (!newPubKey) {
+            throw new Error('connect was successful but pub key was undefined');
+          }
           setPubKey(newPubKey);
           opts?.onSuccess?.();
         })
