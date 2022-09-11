@@ -74,7 +74,7 @@ export const usePhantom = () => {
   }, [provider, pubKey]);
 
   useAddConnectionListeners({ provider, connect, disconnect, setPubKey });
-  useAlignConnectionStatus({ connect, disconnect, pubKey });
+  useAlignConnectionStatus({ provider, connect, disconnect, pubKey });
   useEagerlyConnectToWallet({ connect });
 
   return {

@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { getPhantomProvider } from '../getPhantomProvider';
-import { Connect } from '../types';
+import { Connect, IPhantomProvider } from '../types';
 
 interface Props {
+  provider: IPhantomProvider;
   connect: Connect;
   disconnect: () => void;
   pubKey: string | undefined;
@@ -14,17 +14,14 @@ interface Props {
  * `disconnect`.
  */
 export function useAlignConnectionStatus(props: Props) {
-  const { connect, disconnect, pubKey } = props;
+  const { provider, connect, disconnect, pubKey } = props;
 
   useEffect(() => {
-    const provider = getPhantomProvider();
-    if (!provider) return;
-
     if (
       (!provider.isConnected && pubKey) ||
       (provider.isConnected && !pubKey)
     ) {
       connect({ onlyIfTrusted: true, onError: disconnect });
     }
-  }, [connect, disconnect, pubKey]);
+  }, [provider, connect, disconnect, pubKey]);
 }
