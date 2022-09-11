@@ -1,6 +1,6 @@
 import { usePhantomContext } from './Providers/Phantom';
 
-export function Phantom() {
+export const Phantom = () => {
   const { connect, disconnect, isConnected, isConnecting, pubKey } =
     usePhantomContext();
 
@@ -14,4 +14,4 @@ export function Phantom() {
       <button onClick={disconnect}>Disconnect</button>
     </>
   );
-}
+};

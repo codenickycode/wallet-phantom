@@ -16,6 +16,8 @@ type PhantomRequestMethod =
   | 'signMessage';
 
 export interface ConnectOpts {
+  /** pass `true` if the app is attempting to connect to see if it is already
+   * trusted, `false` if called by a user action. */
   onlyIfTrusted?: boolean;
 }
 

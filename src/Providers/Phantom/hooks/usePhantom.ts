@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { getPhantomProvider } from '../getPhantomProvider';
-import { ConnectOpts } from '../types';
+import { Connect, ConnectOpts } from '../types';
 import { useAddConnectionListeners } from './useAddConnectionListeners';
 import { useAlignConnectionStatus } from './useAlignConnectionStatus';
 import { useEagerlyConnectToWallet } from './useEagerlyConnectToWallet';
@@ -17,17 +17,15 @@ export const usePhantom = () => {
   const [isConnecting, setIsConnecting] = useState(false);
   const [pubKey, _setPubKey] = useState<string | undefined>();
 
-  function setPubKey(newPubKey: string | undefined) {
+  const setPubKey = (newPubKey: string | undefined) => {
     _setPubKey(newPubKey);
-  }
+  };
 
   /**
-   * Attempts to connect to the user's current wallet
-   *
-   * @param opts.onlyIfTrusted - pass `true` if the app is attempting to connect
-   * to see if it is already trusted, `false` if called by a user action.
+   * Attempts to connect to the user's current wallet. On success, will set the
+   * new pub key. On error, will set pub key to `undefined`.
    */
-  const connect = useCallback(
+  const connect: Connect = useCallback(
     (opts?: ConnectOpts) => {
       if (provider.isConnected && pubKey) {
         console.log('already connected to wallet');

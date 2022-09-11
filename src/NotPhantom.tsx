@@ -1,4 +1,4 @@
-export function NotPhantom() {
+export const NotPhantom = () => {
   return (
     <>
       <h1>No Phantom Provider Detected</h1>
@@ -7,4 +7,4 @@ export function NotPhantom() {
       </button>
     </>
   );
-}
+};

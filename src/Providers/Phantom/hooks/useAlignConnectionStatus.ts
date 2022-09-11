@@ -13,7 +13,7 @@ interface Props {
  * it will attempt to connect. If that is not successful it will call
  * `disconnect`.
  */
-export function useAlignConnectionStatus(props: Props) {
+export const useAlignConnectionStatus = (props: Props) => {
   const { provider, connect, disconnect, pubKey } = props;
 
   useEffect(() => {
@@ -24,4 +24,4 @@ export function useAlignConnectionStatus(props: Props) {
       connect({ onlyIfTrusted: true, onError: disconnect });
     }
   }, [provider, connect, disconnect, pubKey]);
-}
+};
