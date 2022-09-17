@@ -2,7 +2,7 @@ import { usePhantomContext } from './Providers/Phantom';
 
 export const Phantom = () => {
   const { connect, disconnect, isConnected, isConnecting, pubKey } =
-    usePhantomContext();
+    usePhantomContext().connection;
 
   return (
     <>

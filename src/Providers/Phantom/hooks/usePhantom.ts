@@ -13,5 +13,5 @@ export const usePhantom = () => {
 
   const connection = usePhantomConnection({ provider });
 
-  return { ...connection };
+  return { connection };
 };
