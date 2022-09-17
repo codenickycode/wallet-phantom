@@ -41,9 +41,11 @@ export const useAddConnectionListeners = (props: Props) => {
     return () => {
       try {
         // @ts-expect-error we are not provided a method to cleanup events
-        Object.values(provider._events).forEach((event: Array<unknown>) => {
-          event.length = 0;
-        });
+        provider._events &&
+          // @ts-expect-error but we should try :)
+          Object.values(provider._events).forEach((event: Array<unknown>) => {
+            event.length = 0;
+          });
       } catch (e) {
         console.error('unable to cleanup events');
       }

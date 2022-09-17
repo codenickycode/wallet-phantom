@@ -10,10 +10,12 @@ export default {
   coverageProvider: 'v8',
   moduleNameMapper: {
     '^.+\\.css$': '<rootDir>/src/test/styleMock.ts',
+    // Force module uuid to resolve with the CJS entry point, because Jest does not support package.json.exports. See https://github.com/uuidjs/uuid/issues/451
+    uuid: require.resolve('uuid'),
   },
   setupFilesAfterEnv: ['<rootDir>/src/test/setupTests.ts'],
   transform: {
-    '^.+\\.tsx?$': ['@swc/jest'],
+    '^.+\\.[jt]sx?$': ['@swc/jest'],
   },
   testEnvironment: 'jsdom',
   verbose: true,

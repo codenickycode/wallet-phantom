@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Connect } from '../types';
+import { Connect } from '../../types';
 
 interface Props {
   connect: Connect;

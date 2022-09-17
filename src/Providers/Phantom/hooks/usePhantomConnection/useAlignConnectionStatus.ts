@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Connect, IPhantomProvider } from '../types';
+import { Connect, IPhantomProvider } from '../../types';
 
 interface Props {
   provider: IPhantomProvider;

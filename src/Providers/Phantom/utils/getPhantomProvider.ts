@@ -10,11 +10,9 @@ export const getPhantomProvider = (): IPhantomProvider | undefined => {
   }
 
   // @ts-expect-error phantom is in window
-  const phantom = window.phantom;
+  const provider = window.phantom?.solana;
 
-  const provider = phantom?.solana.isPhantom && phantom.solana;
-
-  if (!provider) {
+  if (!provider || !provider.isPhantom) {
     return;
   }
 
