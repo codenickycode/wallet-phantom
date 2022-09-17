@@ -6,6 +6,7 @@
     "preinstall": "npx only-allow pnpm",
     "prebuild": "rm -rf build",
     "build": "cross-env pnpm prebuild && webpack --config ./webpack.config/index.ts --env mode=production",
+    "ci": "pnpm lint && pnpm typecheck && pnpm test",
     "develop": "cross-env webpack serve --config ./webpack.config/index.ts --env mode=development",
     "lint": "eslint src",
     "test": "jest",
